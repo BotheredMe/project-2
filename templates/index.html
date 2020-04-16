@@ -72,29 +72,59 @@
 
 
       <div class="container-fluid">
-        <h1 class="ml3" align="center">Impacts of Covid-19</h1>
+        <h1 class="ml3">Impacts of Covid-19</h1>
         <p>The goal of our data is to provide an overview of how the increasing cases of the novel virus has impacted the different sectors of everyday life. </p>
         <p>Using multiple visualizations, we will illustate how the outbreak of Covid-19 has impacted gas prices, unemployment rates, and pollution.</p>
+      
+        <div class="col-md-2">
+          <div class="well">
+            <h5>State:</h5>
+            <select id="selDataset" onchange="optionChanged(this.value)">
+          </select>
+
+          <div class="col-md-5">
+            <div id="pie"></div>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="col-md-5">
+        <div id="line"></div>
+      </div>
+    </div>
+
     </div>
     <!-- /#page-content-wrapper -->
 
   </div>
   <!-- /#wrapper -->
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="../static/vendor/jquery/jquery.min.js"></script>
-  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="../static/vendor/jquery/jquery.min.js"></script>
+<script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Menu Toggle Script -->
-  <script>
-    $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
-  </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-<script type="text/javascript" src="../static/js/logic.js"></script>
+<!-- Menu Toggle Script -->
+<script type="text/javascript" src="static/js/config.js"></script>
+<script>
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
+</script>
+<script type="text/javascript" src = "static.animatedlogo/js/config.js"></script>
+<!--plotly script for the display-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!--anime javascript for animated header-->
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<!-- D3 JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+<!--logic specific for this html page-->
+
+
+<script type="text/javascript" src="../static/js/covidlogic.js"></script>
+
 </body>
 
 </html>
