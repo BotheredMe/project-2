@@ -9,7 +9,7 @@ anime.timeline({loop: false})
     opacity: [0,1],
     easing: "easeInOutQuad",
     duration: 1000,
-    delay: (el, i) => 100 * (i+1)
+    delay: (el, i) => 0 * (i+1)
   });
 
 covid_url = 'https://covidtracking.com/api/states/daily'
@@ -56,7 +56,7 @@ function optionChanged(inputState)
                     type: 'pie'
                 }];
                 var layout = {
-                    title: "Total Cases of Covid-19",
+                    title: `Total Cases of Covid-19 in ${inputState}`,
                     height: 600,
                     width: 600
                     };

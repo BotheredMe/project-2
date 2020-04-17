@@ -20,8 +20,13 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 
+@app.route("/")
+def welcome1():
+    #call html template
+    return render_template('index.html')
+
 @app.route("/index.html")
-def welcome():
+def welcome2():
     #call html template
     return render_template('index.html')
 
