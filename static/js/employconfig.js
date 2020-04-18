@@ -1,3 +1,16 @@
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml3');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: false})
+  .add({
+    targets: '.ml3 .letter',
+    opacity: [0,1],
+    easing: "easeInOutQuad",
+    duration: 1000,
+    delay: (el, i) => 100 * (i+1)
+  });
+
 //Selecting our json file to use and printing to the console
 d3.json("static/unemploymentData.json").then(function(data) {
     
@@ -57,12 +70,11 @@ d3.json("static/unemploymentData.json").then(function(data) {
           Object.entries(data.UnemploymentRate).forEach(([key, value]) => {
               if (key == state)
               d = value
-              currentstate = state
               {
           this._div.innerHTML =
             "<h4>Unemployment rate</h4>" +
             (state
-              ? '<b>' + d + '%</b><br />'
+              ? '<b>' + state['name'] + ' ' + d + '%</b><br />'
               : "Hover over a state");
             }
         })};

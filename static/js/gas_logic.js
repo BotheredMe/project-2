@@ -66,14 +66,16 @@ anime.timeline({loop: false})
 var layout =
 {
 
-  title: "gas prices over time",
+  title: "Gas Prices Over Time",
   //replacing numbers with actual date values
   xaxis: {
     tickmode: "array", 
     tickvals: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
     //shifting string to have month number first, separate by "/" for better view
     ticktext: graph_name_list.map(date=>(date.substring(4,7)+"/"+date.substring(0,4)))
-  }
+  },
+  yaxis: {
+      title: 'US Dollars ($) per Gallon'}
 };
 
 //call Plotly to plot the graph at 'myDiv'

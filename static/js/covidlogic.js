@@ -8,7 +8,7 @@ anime.timeline({loop: false})
     targets: '.ml3 .letter',
     opacity: [0,1],
     easing: "easeInOutQuad",
-    duration: 1000,
+    duration: 7000,
     delay: (el, i) => 0 * (i+1)
   });
 
@@ -20,13 +20,11 @@ function getPlots()
     {   
         var state = []
         var data = data.slice(0,56);
-        console.log(data)
 
         for (i=0; i<data.length; i++)
         {
             state.push(data[i]['state']);
         } 
-        console.log(state);
         var dropdown_list = Object.values(state);
         var dropdown = d3.select("#selDataset").selectAll("select");
         dropdown.data(dropdown_list)
@@ -49,7 +47,7 @@ function optionChanged(inputState)
         var recentData = data.slice(0,56);
         for (i=0; i<recentData.length; i++) {
             if (recentData[i].state === inputState) {
-                console.log(recentData[i].positive);
+
                 var graphData = [{
                     values: [recentData[i].positive, recentData[i].negative, recentData[i].pending],
                     labels: ['Positive', 'Negative', 'Pending'],
@@ -57,8 +55,8 @@ function optionChanged(inputState)
                 }];
                 var layout = {
                     title: `Total Cases of Covid-19 in ${inputState}`,
-                    height: 600,
-                    width: 600
+                    height: 500,
+                    width: 500
                     };
                     Plotly.newPlot('pie', graphData, layout);  
             }
@@ -103,7 +101,9 @@ function optionChanged(inputState)
                     var lineLayout = {
                     title: `${inputState} Recovered vs Deceased`,
                     height: 600,
-                    width: 800
+                    width: 800,
+                    yaxis: {
+                        title: 'Patients'}
                     };
                     
                     Plotly.newPlot('line', lineGraph, lineLayout); 
